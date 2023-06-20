@@ -241,9 +241,7 @@ def main():
     employees = data['employees']
     zones = data['zones']
 
-
-
-    # 打印数据
+    # 打印数据，这里只是做个快速的预览，存错了可以用读取.py列出来核对
     print(employees)
     print(zones)
 
