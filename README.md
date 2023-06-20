@@ -1,5 +1,9 @@
-# Welcome to GitHub Desktop!
+# 欢迎进入py新人的项目!
 
-This is your README. READMEs are where you can communicate what your project is and how to use it.
+人员和区域信息输入.py 可以手动存入人员各个属性，区域的属性和目标属性，储存位置为程序所在目录的data.json，如果没有的话会新建，并且程序可以方便的修改数据（或许不太方便）
 
-Write your name on line 6, save it, and then head back to GitHub Desktop.
+然后 读取.py 可以以一个比较友好的视图读取并显示出来目录下的json文件，虽然但是除了有序号之外感觉json文件更易读
+
+游戏的进度目前故意放缓，nnd，在写完这个之前绝对不能完全做完任务
+
+目前没有写计算的部分，怎么说呢，不会（ 
