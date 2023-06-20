@@ -207,7 +207,7 @@ def main():
     zones = data['zones']
     
     while True:
-        mode = int(input("请选择模式（1、存入工作人员信息；2、存入区域数值；3、列出已存储的员工名和序号；0、跳过存入）："))
+        mode = int(input("请选择模式（1、存入工作人员信息；2、存入区域数值；3、列出已存储的员工名和序号；0、结束并存入更改）："))
         
         if mode == 1:
             employees = store_employee_data(employees)  # 将旧的员工数据传递给函数
