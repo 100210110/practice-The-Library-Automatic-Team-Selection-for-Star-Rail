@@ -4,7 +4,8 @@ employees = {}
 zones = {}
 file_name = "data.json"
 
-#创建默认json文件
+
+# 创建默认json文件
 def create_json_file(file_name, data):
     try:
         with open(file_name, "w") as file:
@@ -12,6 +13,7 @@ def create_json_file(file_name, data):
         print("JSON文件创建成功！")
     except Exception as e:
         print("创建JSON文件时出现错误：", str(e))
+
 
 # 检测json是否存在
 def check_file_exist(file_name):
@@ -28,7 +30,7 @@ def check_file_exist(file_name):
         print(f"打开文件时出现错误：{str(e)}")
 
 
-#默认json
+# 默认json
 data = {
     "employees": {
         "寒腿叔叔": {
@@ -205,23 +207,22 @@ data = {
 }
 
 
-
 # 模式1：存入每个工作人员信息
 def store_employee_data(employees):
     while True:
         employee_id = input("请输入员工姓名（输入0结束）：")
         if employee_id == '0':
             break
-        
+
         employee_info = {}
         employee_info['游览时长'] = int(input("请输入游览时长属性值："))
         employee_info['科普价值'] = int(input("请输入科普价值属性值："))
         employee_info['吸引人流'] = int(input("请输入吸引人流属性值："))
         # 添加其他员工信息字段及其输入逻辑
-        
+
         # 将新员工数据存入员工字典
         employees[employee_id] = employee_info
-    
+
     return employees
 
 
@@ -240,7 +241,7 @@ def store_zone_values(zones):
 
             if choice < 1 or choice > len(areas):
                 raise ValueError()
-            
+
             zone_name = areas[choice - 1]
             print(f"\n当前选择的区域：{zone_name}")
             print(f"当前{zone_name}区域的属性：")
@@ -272,17 +273,17 @@ def store_zone_values(zones):
     return zones
 
 
-
-#模式3：修改删除数据
-#显示列表
+# 模式3：修改删除数据
+# 显示列表
 def list_employees(employees):
     print("已存储的员工：")
     for i, employee in enumerate(employees, start=1):
         print(f"{i}. {employee}")
-    
+
     return employees
 
-#修改或删除
+
+# 修改或删除
 def modify_or_delete_employee_data(employees, employee_number):
     employee_index = employee_number - 1
 
@@ -322,14 +323,14 @@ def main():
     check_file_exist(file_name)
     with open('data.json', 'r', encoding='utf-8') as file:
         data = json.load(file)
-    
+
     # 获取员工数据和区域数值
     employees = data['employees']
     zones = data['zones']
-    
+
     while True:
         mode = int(input("请选择模式（1、存入工作人员信息；2、存入区域数值；3、列出已存储的员工名和序号；0、结束并存入更改）："))
-        
+
         if mode == 1:
             employees = store_employee_data(employees)  # 将旧的员工数据传递给函数
             print("已成功存储工作人员信息。")
@@ -349,10 +350,9 @@ def main():
     # 将更新后的员工数据和区域数值保存回文件
     data['employees'] = employees
     data['zones'] = zones
-    
+
     with open('data.json', 'w', encoding='utf-8') as file:
         json.dump(data, file, ensure_ascii=False, indent=4)
-
 
     # 从JSON文件中读取数据
     with open('data.json', 'r', encoding='utf-8') as file:
@@ -366,5 +366,5 @@ def main():
     print(employees)
     print(zones)
 
-main()
 
+main()
